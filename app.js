@@ -1,18 +1,23 @@
 const express = require("express");
 const mongoose = require('mongoose');
+const app = express();
+const port = process.env.PORT || 5000;
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
 const tweets = require('./routes/api/tweets');
 const User = require('./models/User');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+
+require('./config/passport')(passport);
+
 
 mongoose
   .connect(db, { useNewUrlParser: true})
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-const app = express();
-const port = process.env.PORT || 5000;
+app.use(passport.initialize());
 
 app.use(bodyParser.urlencoded({
   extended: false
