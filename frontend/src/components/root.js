@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter } from 'react-router.dom';
+import { HashRouter } from 'react-router-dom';
 // To create soon
 import App from './app';
 

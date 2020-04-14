@@ -12,7 +12,7 @@ export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 
 // dispatch when user signs in
-export const receiveCurrentUSer = currentUser => ({
+export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser,
 });
@@ -23,6 +23,13 @@ export const receiveUserSignIn = () => ({
 });
 
 // dispatch when there are authentication errors on frontend
+export const receiveErrors = errors => ({
+  type: RECEIVE_SESSION_ERRORS,
+  errors
+})
+
+// when our user is logged out, we will dispatch this action to set isAuthenticated
+// to false
 export const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT
 });
@@ -41,16 +48,12 @@ export const login = user => dispatch => (
     localStorage.setItem('jwtToken', token);
     APIUtil.setAuthToken(token);
     const decoded = jwt_decode(token);
-    dispatch(receiveCurrentUSer(decoded));
+    dispatch(receiveCurrentUser(decoded));
   })
   .catch(err => {
     dispatch(receiveErrors(err.response.data));
   })
 )
-
-export const logoutUser = () => ({
-  type: RECEIVE_USER_LOGOUT
-});
 
 export const logout = () => dispatch => {
   // Remove the token from local storage

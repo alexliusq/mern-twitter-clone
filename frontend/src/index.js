@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 //to be created
-// import Root from './components/root';
+import Root from './components/root';
 
 // TBC
 import configureStore from './store/store';
@@ -16,7 +16,7 @@ import { setAuthToken } from './util/session_api_util';
 // TBC
 import { logout } from './actions/session_actions';
 
-// import axios from 'axios';
+import axios from 'axios';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   // Render our root component and pass in the store as a prop
   const root = document.getElementById('root');
-
+  debugger
   ReactDOM.render(<Root store={store} />, root);
 });
 

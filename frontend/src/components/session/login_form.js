@@ -27,6 +27,12 @@ class LoginForm extends React.Component {
     this.setState({ errors: nextProps.errors });
   }
 
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
   // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
@@ -57,11 +63,12 @@ class LoginForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
+            <br/>
             <input type="text"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
+                value={this.state.email}
+                onChange={this.update('email')}
+                placeholder="Email"
+              />
             <br/>
             <input type="password"
               value={this.state.password}
