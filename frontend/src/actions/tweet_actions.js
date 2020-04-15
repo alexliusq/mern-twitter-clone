@@ -5,7 +5,6 @@ import {
   getUserTweets,
   writeTweet
 } from '../util/tweet_api_util';
-import { RECEIVE_USER_LOGOUT } from '../../../../../../../../frontend/src/actions/session_actions';
 
 export const RECEIVE_TWEETS = "RECEIVE_TWEETS";
 export const RECEIVE_USER_TWEETS = "RECEIVE_USER_TWEETS";

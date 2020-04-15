@@ -1,7 +1,7 @@
 // src/components/tweets/tweet_compose_container.js
 
 import { connect } from 'react-redux';
-import { composeTweet } from '../..actions/tweet_actions';
+import { composeTweet } from '../../actions/tweet_actions';
 import TweetCompose from './tweet_compose';
 
 const mapStateToProps = (state) => {

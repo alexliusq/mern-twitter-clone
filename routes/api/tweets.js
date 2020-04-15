@@ -31,6 +31,11 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/",
+  // (req, res, next) => {
+  //   passport.authenticate("local", (req, res) => {
+
+  //   })
+  // },
   passport.authenticate("jwt", {session: false}),
   (req, res) => {
     const { isValid, errors } = validateTweetInput(req.body);
